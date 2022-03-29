@@ -1,11 +1,10 @@
 
 
 import React, { Component } from "react";
-import Home from "./HomeComponent";
 import Contact from "./ContactComponent";
 import About from "./AboutComponent";
 import Directory from "./DirectoryComponent";
-import CampsiteInfo from "./CampsiteInfoComponent";
+//import CampsiteInfo from "./CampsiteInfoComponent";
 import Constants from "expo-constants";
 import {
   View,
@@ -20,26 +19,26 @@ import {
 import { createStackNavigator } from "react-navigation-stack";
 import { createDrawerNavigator, DrawerItems } from "react-navigation-drawer";
 import { createAppContainer } from "react-navigation";
-import { Icon } from "react-native-elements";
+import { Icon } from "react-native-elements"; //list of icons are in: https://fontawesome.com/v4/icons/
 import SafeAreaView from "react-native-safe-area-view";
 import { connect } from "react-redux";
 import {
-  fetchCampsites,
-  fetchComments,
-  fetchPromotions,
-  fetchPartners,
+  fetchProductos,
+  //fetchComments,
+  //fetchPromotions,
+  //fetchPartners,
 } from "../redux/ActionCreators";
 import Reservation from "./ReservationComponent";
-import Favorites from "./FavoritesComponent"; //Week3
+//import Inventario from "./InventarioComponent"; 
 import Login from "./LoginComponent"; //Week4
 
 import NetInfo from "@react-native-community/netinfo"; //Week4 - NETWORK INFO
 
 const mapDispatchToProps = {
-  fetchCampsites,
-  fetchComments,
-  fetchPromotions,
-  fetchPartners,
+  fetchProductos,
+  //fetchComments,
+  //fetchPromotions,
+  //fetchPartners,
 };
 
 const DirectoryNavigator = createStackNavigator(
@@ -49,7 +48,7 @@ const DirectoryNavigator = createStackNavigator(
       navigationOptions: ({ navigation }) => ({
         headerLeft: (
           <Icon
-            name="list"
+            name="shopping-basket"
             type="font-awesome"
             iconStyle={styles.stackIcon}
             onPress={() => navigation.toggleDrawer()}
@@ -57,13 +56,13 @@ const DirectoryNavigator = createStackNavigator(
         ),
       }),
     },
-    CampsiteInfo: { screen: CampsiteInfo },
+    //CampsiteInfo: { screen: CampsiteInfo },
   },
   {
     initialRouteName: "Directory",
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: "#5637DD",
+        backgroundColor: "#5ad1f1",
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
@@ -73,56 +72,56 @@ const DirectoryNavigator = createStackNavigator(
   }
 );
 
-const HomeNavigator = createStackNavigator(
-  {
-    Home: { screen: Home },
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => ({
-      headerStyle: {
-        backgroundColor: "#5637DD",
-      },
-      headerTintColor: "#fff",
-      headerTitleStyle: {
-        color: "#fff",
-      },
-      headerLeft: (
-        <Icon
-          name="home"
-          type="font-awesome"
-          iconStyle={styles.stackIcon}
-          onPress={() => navigation.toggleDrawer()}
-        />
-      ),
-    }),
-  }
-);
+// const HomeNavigator = createStackNavigator(
+//   {
+//     Home: { screen: Home },
+//   },
+//   {
+//     defaultNavigationOptions: ({ navigation }) => ({
+//       headerStyle: {
+//         backgroundColor: "#5637DD",
+//       },
+//       headerTintColor: "#fff",
+//       headerTitleStyle: {
+//         color: "#fff",
+//       },
+//       headerLeft: (
+//         <Icon
+//           name="home"
+//           type="font-awesome"
+//           iconStyle={styles.stackIcon}
+//           onPress={() => navigation.toggleDrawer()}
+//         />
+//       ),
+//     }),
+//   }
+// );
 
 //Week3 =============
-const FavoritesNavigator = createStackNavigator(
-  {
-    Favorites: { screen: Favorites },
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => ({
-      headerStyle: {
-        backgroundColor: "#5637DD",
-      },
-      headerTintColor: "#fff",
-      headerTitleStyle: {
-        color: "#fff",
-      },
-      headerLeft: (
-        <Icon
-          name="heart"
-          type="font-awesome"
-          iconStyle={styles.stackIcon}
-          onPress={() => navigation.toggleDrawer()}
-        />
-      ),
-    }),
-  }
-);
+// const InventarioNavigator = createStackNavigator(
+//   {
+//     Inventario: { screen: Inventario },
+//   },
+//   {
+//     defaultNavigationOptions: ({ navigation }) => ({
+//       headerStyle: {
+//         backgroundColor: "#5637DD",
+//       },
+//       headerTintColor: "#fff",
+//       headerTitleStyle: {
+//         color: "#fff",
+//       },
+//       headerLeft: (
+//         <Icon
+//           name="basket-shopping"
+//           type="font-awesome"
+//           iconStyle={styles.stackIcon}
+//           onPress={() => navigation.toggleDrawer()}
+//         />
+//       ),
+//     }),
+//   }
+// );
 //============
 
 //Week4 - Login Screen ===============
@@ -133,7 +132,7 @@ const LoginNavigator = createStackNavigator(
   {
     defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
-        backgroundColor: "#5637DD",
+        backgroundColor: "#5ad1f1",
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
@@ -160,7 +159,7 @@ const ContactNavigator = createStackNavigator(
   {
     defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
-        backgroundColor: "#5637DD",
+        backgroundColor: "#5ad1f1",
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
@@ -185,7 +184,7 @@ const ReservationNavigator = createStackNavigator(
   {
     defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
-        backgroundColor: "#5637DD",
+        backgroundColor: "#5ad1f1",
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
@@ -210,7 +209,7 @@ const AboutNavigator = createStackNavigator(
   {
     defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
-        backgroundColor: "#5637DD",
+        backgroundColor: "#5ad1f1",
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
@@ -242,7 +241,7 @@ const CustomDrawerContentComponent = (props) => (
           />
         </View>
         <View style={{ flex: 2 }}>
-          <Text style={styles.drawerHeaderText}>NuCamp</Text>
+          <Text style={styles.drawerHeaderText}>HomeStore</Text>
         </View>
       </View>
       <DrawerItems {...props} />
@@ -266,19 +265,20 @@ const MainNavigator = createDrawerNavigator(
       },
     },
 
-    Home: {
-      screen: HomeNavigator,
-      navigationOptions: {
-        drawerIcon: ({ tintColor }) => (
-          <Icon name="home" type="font-awesome" size={24} color={tintColor} />
-        ),
-      },
-    },
+    // Home: {
+    //   screen: HomeNavigator,
+    //   navigationOptions: {
+    //     drawerIcon: ({ tintColor }) => (
+    //       <Icon name="home" type="font-awesome" size={24} color={tintColor} />
+    //     ),
+    //   },
+    // },
     Directory: {
       screen: DirectoryNavigator,
       navigationOptions: {
+        drawerLabel: "Mi Stock",
         drawerIcon: ({ tintColor }) => (
-          <Icon name="list" type="font-awesome" size={24} color={tintColor} />
+          <Icon name="shopping-basket" type="font-awesome" size={20} color={tintColor} />
         ),
       },
     },
@@ -294,15 +294,15 @@ const MainNavigator = createDrawerNavigator(
     },
 
     //WEEK3
-    Favorites: {
-      screen: FavoritesNavigator,
-      navigationOptions: {
-        drawerLabel: "My Favorites",
-        drawerIcon: ({ tintColor }) => (
-          <Icon name="heart" type="font-awesome" size={24} color={tintColor} />
-        ),
-      },
-    },
+    // Favorites: {
+    //   screen: FavoritesNavigator,
+    //   navigationOptions: {
+    //     drawerLabel: "My Favorites",
+    //     drawerIcon: ({ tintColor }) => (
+    //       <Icon name="heart" type="font-awesome" size={24} color={tintColor} />
+    //     ),
+    //   },
+    // },
     //=============
     About: {
       screen: AboutNavigator,
@@ -334,8 +334,8 @@ const MainNavigator = createDrawerNavigator(
     },
   },
   {
-    initialRouteName: "Home", //Week4 - Especificar la primera pantalla
-    drawerBackgroundColor: "#CEC8FF",
+    initialRouteName: "Directory", //Week4 - Especificar la primera pantalla
+    drawerBackgroundColor: "#3bc9ed",
     contentComponent: CustomDrawerContentComponent,
   }
 );
@@ -344,10 +344,10 @@ const AppNavigator = createAppContainer(MainNavigator);
 
 class Main extends Component {
   componentDidMount() {
-    this.props.fetchCampsites();
-    this.props.fetchComments();
-    this.props.fetchPromotions();
-    this.props.fetchPartners();
+    this.props.fetchProductos();
+    //this.props.fetchComments();
+    //this.props.fetchPromotions();
+    //this.props.fetchPartners();
 
     NetInfo.fetch().then((connectionInfo) => {
       Platform.OS === "ios"
@@ -407,7 +407,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   drawerHeader: {
-    backgroundColor: "#5637DD",
+    backgroundColor: "#3d8ea4",
     height: 140,
     alignItems: "center",
     justifyContent: "center",
@@ -415,14 +415,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   drawerHeaderText: {
-    color: "#fff",
+    color: "#FFFF",
     fontSize: 24,
     fontWeight: "bold",
   },
   drawerImage: {
     margin: 10,
-    height: 60,
-    width: 60,
+    height: 90,
+    width: 90,
   },
   stackIcon: {
     marginLeft: 10,

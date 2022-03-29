@@ -4,16 +4,16 @@ import { ListItem } from "react-native-elements";
 import { connect } from "react-redux";
 import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
-import { SwipeRow } from "react-native-swipe-list-view";
-import { TouchableOpacity } from "react-native-gesture-handler";
+//import { SwipeRow } from "react-native-swipe-list-view";
+//import { TouchableOpacity } from "react-native-gesture-handler";
 import { deleteFavorite } from "../redux/ActionCreators";
 
 import * as Animatable from "react-native-animatable"; //Week3 Animations
 
 const mapStateToProps = (state) => {
   return {
-    campsites: state.campsites,
-    favorites: state.favorites,
+    productos: state.productos,
+    //favorites: state.favorites,
   };
 };
 
@@ -21,44 +21,17 @@ const mapDispatchToProps = {
   deleteFavorite: (campsiteId) => deleteFavorite(campsiteId),
 };
 
-class Favorites extends Component {
+class Inventario extends Component {
   static navigationOptions = {
-    title: "My Favorites",
+    title: "Mi Inventario",
   };
 
   render() {
     const { navigate } = this.props.navigation;
     const renderFavoriteItem = ({ item }) => {
       return (
-        <SwipeRow rightOpenValue={-100} style={styles.swipeRow}>
-          <View style={styles.deleteView}>
-            <TouchableOpacity
-              style={styles.deleteTouchable}
-              onPress={() =>
-                Alert.alert(
-                  "Delete Favorite?",
-                  "Are you sure you wish to delete the favorite campsite " +
-                    item.name +
-                    "?",
-                  [
-                    {
-                      text: "Cancel",
-                      onPress: () => console.log(item.name + "Not Deleted"),
-                      style: "cancel",
-                    },
-                    {
-                      text: "OK",
-                      onPress: () => this.props.deleteFavorite(item.id),
-                    },
-                  ],
-                  { cancelable: false } //No deja que salgas de la alerta haciendo clic en otro lado.
-                )
-              }
-            >
-              <Text style={styles.deleteText}>Delete</Text>
-            </TouchableOpacity>
-          </View>
 
+      <Row>
           <View>
             <ListItem
               title={item.name}
@@ -67,7 +40,48 @@ class Favorites extends Component {
               onPress={() => navigate("CampsiteInfo", { campsiteId: item.id })}
             />
           </View>
-        </SwipeRow>
+        </Row>
+
+
+        //SWIPEROW
+        // <SwipeRow rightOpenValue={-100} style={styles.swipeRow}>
+        //   <View style={styles.deleteView}>
+        //     <TouchableOpacity
+        //       style={styles.deleteTouchable}
+        //       onPress={() =>
+        //         Alert.alert(
+        //           "Delete Favorite?",
+        //           "Are you sure you wish to delete the favorite campsite " +
+        //             item.name +
+        //             "?",
+        //           [
+        //             {
+        //               text: "Cancel",
+        //               onPress: () => console.log(item.name + "Not Deleted"),
+        //               style: "cancel",
+        //             },
+        //             {
+        //               text: "OK",
+        //               onPress: () => this.props.deleteFavorite(item.id),
+        //             },
+        //           ],
+        //           { cancelable: false } //No deja que salgas de la alerta haciendo clic en otro lado.
+        //         )
+        //       }
+        //     >
+        //       <Text style={styles.deleteText}>Delete</Text>
+        //     </TouchableOpacity>
+        //   </View>
+
+        //   <View>
+        //     <ListItem
+        //       title={item.name}
+        //       subtitle={item.description}
+        //       leftAvatar={{ source: { uri: baseUrl + item.image } }}
+        //       onPress={() => navigate("CampsiteInfo", { campsiteId: item.id })}
+        //     />
+        //   </View>
+        // </SwipeRow>
       );
     };
 
