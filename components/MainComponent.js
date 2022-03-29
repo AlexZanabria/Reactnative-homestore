@@ -1,7 +1,5 @@
-
-
 import React, { Component } from "react";
-import Contact from "./ContactComponent";
+import Feedback from "./FeedbackComponent";
 import About from "./AboutComponent";
 import Directory from "./DirectoryComponent";
 import ShoppingList from "./ShoppingListComponent";
@@ -180,9 +178,9 @@ const LoginNavigator = createStackNavigator(
 
 //Fin de Login Screen============
 
-const ContactNavigator = createStackNavigator(
+const FeedbackNavigator = createStackNavigator(
   {
-    Contact: { screen: Contact },
+    Feedback: { screen: Feedback },
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -195,7 +193,7 @@ const ContactNavigator = createStackNavigator(
       },
       headerLeft: (
         <Icon
-          name="address-card"
+          name="comments"
           type="font-awesome"
           iconStyle={styles.stackIcon}
           onPress={() => navigation.toggleDrawer()}
@@ -357,13 +355,13 @@ const MainNavigator = createDrawerNavigator(
         ),
       },
     },
-    Contact: {
-      screen: ContactNavigator,
+    Feedback: {
+      screen: FeedbackNavigator,
       navigationOptions: {
-        drawerLabel: "Contact Us",
+        drawerLabel: "Give Feedback",
         drawerIcon: ({ tintColor }) => (
           <Icon
-            name="address-card"
+            name="comments"
             type="font-awesome"
             size={24}
             color={tintColor}

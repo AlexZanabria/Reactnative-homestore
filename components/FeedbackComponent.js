@@ -6,16 +6,16 @@ import * as Animatable from "react-native-animatable"; //Week3 Animations
 
 import * as MailComposer from "expo-mail-composer"; //Week4 - Add a Send Email button
 
-class Contact extends Component {
+class Feedback extends Component {
   static navigationOptions = {
-    title: "Contact Us",
+    title: "Give Feedback",
   };
 
   sendMail() {
     MailComposer.composeAsync({
-      recipients: ["campsites@nucamp.co", "roy.zanabria@gmail.com"], //Array de emails
-      subject: "Reclamo", //Asunto del correo
-      body: "To whom it may concern: / A quien corresponda:", //Texto predeterminado del body email
+      recipients: ["alexandrzanabria@gmail.com", "azanabriadeveloper@gmail.com"], //Array de emails
+      subject: "Homestore app - bug or improvement", //Asunto del correo
+      body: "Hello Alexandr, I would like to ask for a feature or report a bug...", //Texto predeterminado del body email
     });
   }
 
@@ -23,18 +23,19 @@ class Contact extends Component {
     return (
       <ScrollView>
         <Animatable.View animation="fadeInDown" duration={2000} delay={1000}>
-          <Card title={"Contact Information"} WrapperStyle={{ margin: 20 }}>
-            <Text>1 Nucamp Way</Text>
-            <Text>Seattle, WA 98001</Text>
-            <Text style={{ marginBottom: 10 }}>U.S.A.</Text>
-            <Text>Phone: 1-206-555-1234</Text>
-            <Text>Email: campsites@nucamp.co</Text>
+          <Card title={"Your feedback is important"} WrapperStyle={{ margin: 20 }}>
+            <Text>Tell us what you think, and help us to improve and create a better app </Text>
+           
+            <Text> </Text>
+            <Text>Phone: +51-973835555</Text>
+            <Text>Email: azanabriadeveloper@gmail.com</Text>
+            <Text style={{ marginBottom: 10 }}>PERU</Text>
 
             {/* =====Week4 - Button Component */}
 
             <Button
-              title="Enviar Email"
-              buttonStyle={{ backgroundColor: "#5637DD", margin: 40 }}
+              title="Send Feedback"
+              buttonStyle={{ backgroundColor: "#3d8ea4", margin: 40 }}
               icon={
                 <Icon
                   name="envelope-o"
@@ -52,4 +53,4 @@ class Contact extends Component {
   }
 }
 
-export default Contact;
+export default Feedback;
