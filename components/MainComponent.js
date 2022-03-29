@@ -4,6 +4,8 @@ import React, { Component } from "react";
 import Contact from "./ContactComponent";
 import About from "./AboutComponent";
 import Directory from "./DirectoryComponent";
+import ShoppingList from "./ShoppingListComponent";
+
 //import CampsiteInfo from "./CampsiteInfoComponent";
 import Constants from "expo-constants";
 import {
@@ -71,6 +73,32 @@ const DirectoryNavigator = createStackNavigator(
     },
   }
 );
+
+const ShoppingListNavigator = createStackNavigator(
+  {
+    Reservation: { screen: ShoppingList },
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      headerStyle: {
+        backgroundColor: "#5ad1f1",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        color: "#fff",
+      },
+      headerLeft: (
+        <Icon
+          name="shopping-cart"
+          type="font-awesome"
+          iconStyle={styles.stackIcon}
+          onPress={() => navigation.toggleDrawer()}
+        />
+      ),
+    }),
+  }
+);
+
 
 // const HomeNavigator = createStackNavigator(
 //   {
@@ -279,6 +307,17 @@ const MainNavigator = createDrawerNavigator(
         drawerLabel: "Mi Stock",
         drawerIcon: ({ tintColor }) => (
           <Icon name="shopping-basket" type="font-awesome" size={20} color={tintColor} />
+        ),
+      },
+    },
+
+
+    ShoppingList: {
+      screen: ShoppingListNavigator,
+      navigationOptions: {
+        drawerLabel: "Shopping List x7 days",
+        drawerIcon: ({ tintColor }) => (
+          <Icon name="shopping-cart" type="font-awesome" size={20} color={tintColor} />
         ),
       },
     },
