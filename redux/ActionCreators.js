@@ -3,6 +3,7 @@
 
 import * as ActionTypes from "./ActionTypes";
 import { baseUrl } from "../shared/baseUrl";
+//import AddProduct from "../components/NewProductComponent";
 
 // export const fetchComments = () => (dispatch) => {
 //   return fetch(baseUrl + "comments")
@@ -173,24 +174,45 @@ export const addProductos = (productos) => ({
 
 //===========WEEK2-TASK3 ADDING 2 CREATOR FUNCTIONS: postComment and addComment
 
-// export const postComment = (campsiteId, rating, author, text) => (dispatch) => {
-//   const newComment = {
-//     campsiteId,
-//     rating,
-//     author,
-//     text,
-//   };
-//   newComment.date = new Date().toISOString();
+export const postProduct = (name, stock, unidad, preciounitario) => (dispatch) => {
+  const NewProduct = {
+    name,
+    stock,
+    unidad,
+    preciounitario,
+  };
+  //newComment.date = new Date().toISOString();
 
-//   setTimeout(() => {
-//     dispatch(addComment(newComment));
-//   }, 2000);
-// };
+  return fetch(baseUrl + 'productos', {
+    method: "POST",
+    body: JSON.stringify(NewProduct),
+    headers: {
+        "Content-Type": "application/json"
+    }
+})
+.then(response => {
+        if (response.ok) {
+            return response;
+        } else {
+            const error = new Error(`Error ${response.status}: ${response.statusText}`);
+            error.response = response;
+            throw error;
+        }
+    },
+    error => { throw error; }
+)
+.then(response => response.json())
+.then(response => dispatch(AddProduct(response)))
+.catch(error => {
+    console.log('post product', error.message);
+    alert('Your product could not be posted\nError: ' + error.message);
+});
+};
 
-// export const addComment = (comment) => ({
-//   type: ActionTypes.ADD_COMMENT,
-//   payload: comment,
-// });
+export const AddProduct = (product) => ({
+  type: ActionTypes.CREATE_PRODUCT,
+  payload: product,
+});
 
 //==============FIN DE WEEK2-TASK3==============================
 

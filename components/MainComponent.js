@@ -3,7 +3,7 @@ import Feedback from "./FeedbackComponent";
 import About from "./AboutComponent";
 import Directory from "./DirectoryComponent";
 import ShoppingList from "./ShoppingListComponent";
-
+import AddProduct from "./NewProductComponent";
 //import CampsiteInfo from "./CampsiteInfoComponent";
 import Constants from "expo-constants";
 import {
@@ -203,9 +203,9 @@ const FeedbackNavigator = createStackNavigator(
   }
 );
 
-const ReservationNavigator = createStackNavigator(
+const NewProductNavigator = createStackNavigator(
   {
-    Reservation: { screen: Reservation },
+    AddProduct: { screen: AddProduct },
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -218,7 +218,7 @@ const ReservationNavigator = createStackNavigator(
       },
       headerLeft: (
         <Icon
-          name="tree"
+          name="file-text-o"
           type="font-awesome"
           iconStyle={styles.stackIcon}
           onPress={() => navigation.toggleDrawer()}
@@ -320,12 +320,12 @@ const MainNavigator = createDrawerNavigator(
       },
     },
 
-    Reservation: {
-      screen: ReservationNavigator,
+    AddProduct: {
+      screen: NewProductNavigator,
       navigationOptions: {
-        drawerLabel: "Reserve Campsite",
+        drawerLabel: "Add New Product",
         drawerIcon: ({ tintColor }) => (
-          <Icon name="tree" type="font-awesome" size={24} color={tintColor} />
+          <Icon name="file-text-o" type="font-awesome" size={24} color={tintColor} />
         ),
       },
     },

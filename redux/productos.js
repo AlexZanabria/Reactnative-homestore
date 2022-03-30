@@ -13,6 +13,13 @@ export const productos = (state = { isLoading: true,
         case ActionTypes.PRODUCTOS_FAILED:
             return {...state, isLoading: false, errMess: action.payload};
 
+    //WEEK2-TASK3 handling ADD_COMMENT
+        case ActionTypes.CREATE_PRODUCT:
+            const product = action.payload;
+            product.id = state.productos.length;
+            return {...state, productos: state.productos.concat(product)};
+            
+
         default:
             return state;
       }

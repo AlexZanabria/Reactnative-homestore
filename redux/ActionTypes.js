@@ -17,6 +17,6 @@ export const PRODUCTOS_FAILED = 'PRODUCTOS_FAILED';
 // export const ADD_FAVORITE = 'ADD_FAVORITE';
 
 //WEEK2-TASK3 add Comment from Rating form
-// export const ADD_COMMENT = 'ADD_COMMENT';
+export const CREATE_PRODUCT = 'CREATE_PRODUCT';
 
 // export const DELETE_FAVORITE = 'DELETE_FAVORITE'; //Week3
