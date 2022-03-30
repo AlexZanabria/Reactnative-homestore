@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Feedback from "./FeedbackComponent";
-import About from "./AboutComponent";
+//import About from "./AboutComponent";
 import Directory from "./DirectoryComponent";
 import ShoppingList from "./ShoppingListComponent";
 import AddProduct from "./NewProductComponent";
@@ -28,9 +28,9 @@ import {
   //fetchPromotions,
   //fetchPartners,
 } from "../redux/ActionCreators";
-import Reservation from "./ReservationComponent";
+//import Reservation from "./ReservationComponent";
 //import Inventario from "./InventarioComponent"; 
-import Login from "./LoginComponent"; //Week4
+//import Login from "./LoginComponent"; //Week4
 
 import NetInfo from "@react-native-community/netinfo"; //Week4 - NETWORK INFO
 
@@ -74,7 +74,7 @@ const DirectoryNavigator = createStackNavigator(
 
 const ShoppingListNavigator = createStackNavigator(
   {
-    Reservation: { screen: ShoppingList },
+    ShoppingList: { screen: ShoppingList },
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -151,30 +151,30 @@ const ShoppingListNavigator = createStackNavigator(
 //============
 
 //Week4 - Login Screen ===============
-const LoginNavigator = createStackNavigator(
-  {
-    Login: { screen: Login },
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => ({
-      headerStyle: {
-        backgroundColor: "#5ad1f1",
-      },
-      headerTintColor: "#fff",
-      headerTitleStyle: {
-        color: "#fff",
-      },
-      headerLeft: (
-        <Icon
-          name="sign-in"
-          type="font-awesome"
-          iconStyle={styles.stackIcon}
-          onPress={() => navigation.toggleDrawer()}
-        />
-      ),
-    }),
-  }
-);
+// const LoginNavigator = createStackNavigator(
+//   {
+//     Login: { screen: Login },
+//   },
+//   {
+//     defaultNavigationOptions: ({ navigation }) => ({
+//       headerStyle: {
+//         backgroundColor: "#5ad1f1",
+//       },
+//       headerTintColor: "#fff",
+//       headerTitleStyle: {
+//         color: "#fff",
+//       },
+//       headerLeft: (
+//         <Icon
+//           name="sign-in"
+//           type="font-awesome"
+//           iconStyle={styles.stackIcon}
+//           onPress={() => navigation.toggleDrawer()}
+//         />
+//       ),
+//     }),
+//   }
+// );
 
 //Fin de Login Screen============
 
@@ -228,30 +228,30 @@ const NewProductNavigator = createStackNavigator(
   }
 );
 
-const AboutNavigator = createStackNavigator(
-  {
-    About: { screen: About },
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => ({
-      headerStyle: {
-        backgroundColor: "#5ad1f1",
-      },
-      headerTintColor: "#fff",
-      headerTitleStyle: {
-        color: "#fff",
-      },
-      headerLeft: (
-        <Icon
-          name="info-circle"
-          type="font-awesome"
-          iconStyle={styles.stackIcon}
-          onPress={() => navigation.toggleDrawer()}
-        />
-      ),
-    }),
-  }
-);
+// const AboutNavigator = createStackNavigator(
+//   {
+//     About: { screen: About },
+//   },
+//   {
+//     defaultNavigationOptions: ({ navigation }) => ({
+//       headerStyle: {
+//         backgroundColor: "#5ad1f1",
+//       },
+//       headerTintColor: "#fff",
+//       headerTitleStyle: {
+//         color: "#fff",
+//       },
+//       headerLeft: (
+//         <Icon
+//           name="info-circle"
+//           type="font-awesome"
+//           iconStyle={styles.stackIcon}
+//           onPress={() => navigation.toggleDrawer()}
+//         />
+//       ),
+//     }),
+//   }
+// );
 
 const CustomDrawerContentComponent = (props) => (
   <ScrollView>
@@ -277,19 +277,19 @@ const CustomDrawerContentComponent = (props) => (
 
 const MainNavigator = createDrawerNavigator(
   {
-    Login: {
-      screen: LoginNavigator,
-      navigationOptions: {
-        drawerIcon: ({ tintColor }) => (
-          <Icon
-            name="sign-in"
-            type="font-awesome"
-            size={24}
-            color={tintColor}
-          />
-        ),
-      },
-    },
+    // Login: {
+    //   screen: LoginNavigator,
+    //   navigationOptions: {
+    //     drawerIcon: ({ tintColor }) => (
+    //       <Icon
+    //         name="sign-in"
+    //         type="font-awesome"
+    //         size={24}
+    //         color={tintColor}
+    //       />
+    //     ),
+    //   },
+    // },
 
     // Home: {
     //   screen: HomeNavigator,
@@ -341,20 +341,20 @@ const MainNavigator = createDrawerNavigator(
     //   },
     // },
     //=============
-    About: {
-      screen: AboutNavigator,
-      navigationOptions: {
-        drawerLabel: "About Us",
-        drawerIcon: ({ tintColor }) => (
-          <Icon
-            name="info-circle"
-            type="font-awesome"
-            size={24}
-            color={tintColor}
-          />
-        ),
-      },
-    },
+    // About: {
+    //   screen: AboutNavigator,
+    //   navigationOptions: {
+    //     drawerLabel: "About Us",
+    //     drawerIcon: ({ tintColor }) => (
+    //       <Icon
+    //         name="info-circle"
+    //         type="font-awesome"
+    //         size={24}
+    //         color={tintColor}
+    //       />
+    //     ),
+    //   },
+    // },
     Feedback: {
       screen: FeedbackNavigator,
       navigationOptions: {

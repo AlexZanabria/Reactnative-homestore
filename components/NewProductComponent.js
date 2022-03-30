@@ -37,7 +37,7 @@ class AddProduct extends Component {
             marca: "",
             location: "PrimerPiso",
             consumodiario: "0.5",
-            imageUrl: baseUrl + "images/logo.png",
+            imageUrl: baseUrl + "images/logo2.png",
             barcode: ""
         };
     }
@@ -136,7 +136,7 @@ resetForm() {
     marca: "",
     location: "PrimerPiso",
     consumodiario: "0.5",
-    imageUrl: baseUrl + "images/logo.png",
+    imageUrl: baseUrl + "images/logo2.png",
     barcode: ""
   });
 }
@@ -151,12 +151,14 @@ render() {
         <View style={styles.imageContainer}>
           <Image
             source={{ uri: this.state.imageUrl }}
-            loadingIndicatorSource={require("./images/logo.png")}
+            loadingIndicatorSource={require("./images/logo2.png")}
             style={styles.image}
           />
-          <Button title="Camera" onPress={this.getImageFromCamera} />
+          <Button title="Camera" onPress={this.getImageFromCamera} 
+          buttonStyle={{ backgroundColor: "#3d8ea4" }}/>
 
-          <Button title="Gallery" onPress={this.getImageFromGallery} />
+          <Button title="Gallery" onPress={this.getImageFromGallery} 
+          buttonStyle={{ backgroundColor: "#3d8ea4" }}/>
         </View>
 
         {/* =============Imagen de usuario (PROFILE PHOTO) */}
