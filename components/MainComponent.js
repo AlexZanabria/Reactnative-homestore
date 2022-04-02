@@ -36,9 +36,6 @@ import NetInfo from "@react-native-community/netinfo"; //Week4 - NETWORK INFO
 
 const mapDispatchToProps = {
   fetchProductos,
-  //fetchComments,
-  //fetchPromotions,
-  //fetchPartners,
 };
 
 const DirectoryNavigator = createStackNavigator(
@@ -56,7 +53,6 @@ const DirectoryNavigator = createStackNavigator(
         ),
       }),
     },
-    //CampsiteInfo: { screen: CampsiteInfo },
   },
   {
     initialRouteName: "Directory",

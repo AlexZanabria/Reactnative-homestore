@@ -1,0 +1,9 @@
+ICONOS DE REACT FONT AWESOME 
+https://fontawesome.com/v4/icons/
+
+Antiguo color: #5637DD
+
+COLORES DE LA APP:
+
+Nuevo Color: #5AD1F1  -  reemplazo de #5637DD
+Color de botones: #3D8EA4

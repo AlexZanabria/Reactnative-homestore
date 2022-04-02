@@ -180,8 +180,9 @@ export const postProduct = (name, stock, unidad, preciounitario) => (dispatch) =
     stock,
     unidad,
     preciounitario,
+    
   };
-  //newComment.date = new Date().toISOString();
+  NewProduct.image = "images/generic.jpg";
 
   return fetch(baseUrl + 'productos', {
     method: "POST",
