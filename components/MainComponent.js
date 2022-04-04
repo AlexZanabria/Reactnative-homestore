@@ -38,6 +38,9 @@ const mapDispatchToProps = {
   fetchProductos,
 };
 
+
+//INICIO DE STACK NAVIGATORS ======================================
+
 const DirectoryNavigator = createStackNavigator(
   {
     Directory: {
@@ -58,11 +61,11 @@ const DirectoryNavigator = createStackNavigator(
     initialRouteName: "Directory",
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: "#5ad1f1",
+        backgroundColor: "#011F26",
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
-        color: "#fff",
+        color: "#A5A692",
       },
     },
   }
@@ -75,11 +78,11 @@ const ShoppingListNavigator = createStackNavigator(
   {
     defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
-        backgroundColor: "#5ad1f1",
+        backgroundColor: "#011F26",
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
-        color: "#fff",
+        color: "#A5A692",
       },
       headerLeft: (
         <Icon
@@ -93,6 +96,57 @@ const ShoppingListNavigator = createStackNavigator(
   }
 );
 
+const FeedbackNavigator = createStackNavigator(
+  {
+    Feedback: { screen: Feedback },
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      headerStyle: {
+        backgroundColor: "#011F26",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        color: "#A5A692",
+      },
+      headerLeft: (
+        <Icon
+          name="comments"
+          type="font-awesome"
+          iconStyle={styles.stackIcon}
+          onPress={() => navigation.toggleDrawer()}
+        />
+      ),
+    }),
+  }
+);
+
+const NewProductNavigator = createStackNavigator(
+  {
+    AddProduct: { screen: AddProduct },
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      headerStyle: {
+        backgroundColor: "#011F26",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        color: "#A5A692",
+      },
+      headerLeft: (
+        <Icon
+          name="file-text-o"
+          type="font-awesome"
+          iconStyle={styles.stackIcon}
+          onPress={() => navigation.toggleDrawer()}
+        />
+      ),
+    }),
+  }
+);
+
+//FIN DE STACK NAVIGATORS ======================================
 
 // const HomeNavigator = createStackNavigator(
 //   {
@@ -173,56 +227,6 @@ const ShoppingListNavigator = createStackNavigator(
 // );
 
 //Fin de Login Screen============
-
-const FeedbackNavigator = createStackNavigator(
-  {
-    Feedback: { screen: Feedback },
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => ({
-      headerStyle: {
-        backgroundColor: "#5ad1f1",
-      },
-      headerTintColor: "#fff",
-      headerTitleStyle: {
-        color: "#fff",
-      },
-      headerLeft: (
-        <Icon
-          name="comments"
-          type="font-awesome"
-          iconStyle={styles.stackIcon}
-          onPress={() => navigation.toggleDrawer()}
-        />
-      ),
-    }),
-  }
-);
-
-const NewProductNavigator = createStackNavigator(
-  {
-    AddProduct: { screen: AddProduct },
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => ({
-      headerStyle: {
-        backgroundColor: "#5ad1f1",
-      },
-      headerTintColor: "#fff",
-      headerTitleStyle: {
-        color: "#fff",
-      },
-      headerLeft: (
-        <Icon
-          name="file-text-o"
-          type="font-awesome"
-          iconStyle={styles.stackIcon}
-          onPress={() => navigation.toggleDrawer()}
-        />
-      ),
-    }),
-  }
-);
 
 // const AboutNavigator = createStackNavigator(
 //   {
@@ -368,7 +372,10 @@ const MainNavigator = createDrawerNavigator(
   },
   {
     initialRouteName: "Directory", //Week4 - Especificar la primera pantalla
-    drawerBackgroundColor: "#3bc9ed",
+    drawerBackgroundColor: "#A5A692",
+    contentOptions: {
+      activeTintColor: '#011F26',
+      activeBackgroundColor: "#F2A71B"},
     contentComponent: CustomDrawerContentComponent,
   }
 );
@@ -440,7 +447,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   drawerHeader: {
-    backgroundColor: "#3d8ea4",
+    backgroundColor: "#A5A692",
     height: 140,
     alignItems: "center",
     justifyContent: "center",

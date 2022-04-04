@@ -62,7 +62,16 @@ if (operator=="add") {
             subtitle={item.stock+" "+item.unidad}
             leftAvatar={{ source: { uri: baseUrl + item.image } }}
             chevron
+            //topDivider
+            //bottomDivider
             onLongPress={() => this.toggleModal(item.name,item.image,item.stock,item.unidad)}
+            // containerStyle={{
+            //   marginLeft: 5,
+            //   marginRight: 5, 
+            //   marginTop: 10, 
+            //   borderRadius: 10, // adds the rounded corners
+            //   backgroundColor: '#BFB78F'
+            // }}
           />
       );
     };
